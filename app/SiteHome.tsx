@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import HeroReel from "./HeroReel";
 import {
@@ -151,12 +152,19 @@ export default function SiteHome({ locale }: { locale: Locale }) {
                 </div>
 
                 <div
-                  className={`${imageClass} w-full overflow-hidden bg-black/5`}
+                  className={`${imageClass} relative w-full overflow-hidden bg-black/5`}
                 >
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.025] group-hover:brightness-[0.92]"
+                    fill
+                    sizes={
+                      index === 0 || index === 3
+                        ? "(min-width: 768px) 58vw, 100vw"
+                        : "(min-width: 768px) 42vw, 100vw"
+                    }
+                    quality={80}
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.025] group-hover:brightness-[0.92]"
                   />
                 </div>
 
@@ -200,11 +208,14 @@ export default function SiteHome({ locale }: { locale: Locale }) {
                 href={`${prefix}/work/${slug}`}
                 className="group block cursor-pointer"
               >
-                <div className="mb-4 aspect-[16/9] overflow-hidden bg-black/5">
-                  <img
+                <div className="relative mb-4 aspect-[16/9] overflow-hidden bg-black/5">
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.035] group-hover:brightness-[0.92]"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    quality={80}
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.035] group-hover:brightness-[0.92]"
                   />
                 </div>
 

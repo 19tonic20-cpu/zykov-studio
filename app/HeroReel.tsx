@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Locale } from "./site-data";
@@ -39,14 +40,30 @@ const slides = [
 
 export default function HeroReel({ locale = "en" }: { locale?: Locale }) {
   const [active, setActive] = useState(0);
+  const [previous, setPrevious] = useState<number | null>(null);
+  const [currentLoaded, setCurrentLoaded] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActive((current) => (current + 1) % slides.length);
+    const interval = window.setInterval(() => {
+      setActive((current) => {
+        setPrevious(current);
+        setCurrentLoaded(false);
+        return (current + 1) % slides.length;
+      });
     }, 3600);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (!currentLoaded || previous === null) return;
+
+    const timeout = window.setTimeout(() => {
+      setPrevious(null);
+    }, 1000);
+
+    return () => window.clearTimeout(timeout);
+  }, [currentLoaded, previous]);
 
   const currentSlide = slides[active];
   const prefix = locale === "ru" ? "/ru" : "";
@@ -62,18 +79,34 @@ export default function HeroReel({ locale = "en" }: { locale?: Locale }) {
           aria-label={`${cta.replace(" →", "")}: ${currentSlide.title}`}
         >
           <div className="relative aspect-[4/5] overflow-hidden bg-black/5">
-            {slides.map((slide, index) => (
-              <img
-                key={slide.title}
-                src={slide.image}
-                alt={slide.title}
-                className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-out ${
-                  index === active
-                    ? "scale-100 opacity-100 group-hover:scale-[1.02]"
-                    : "scale-[1.02] opacity-0"
-                }`}
+            {previous !== null && previous !== active && (
+              <Image
+                src={slides[previous].image}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 42vw, 100vw"
+                quality={82}
+                aria-hidden="true"
+                className="object-cover"
               />
-            ))}
+            )}
+
+            <Image
+              key={currentSlide.slug}
+              src={currentSlide.image}
+              alt={currentSlide.title}
+              fill
+              sizes="(min-width: 768px) 42vw, 100vw"
+              quality={82}
+              loading={active === 0 ? "eager" : "lazy"}
+              fetchPriority={active === 0 ? "high" : "auto"}
+              onLoad={() => setCurrentLoaded(true)}
+              className={`object-cover transition-all duration-1000 ease-out ${
+                currentLoaded
+                  ? "scale-100 opacity-100 group-hover:scale-[1.02]"
+                  : "scale-[1.02] opacity-0"
+              }`}
+            />
 
             <div className="absolute left-3 top-3 bg-[#f3f1eb]/90 px-2 py-1 text-[10px] uppercase tracking-[0.08em] backdrop-blur-sm">
               {projectLabel} {String(active + 1).padStart(2, "0")}
@@ -84,7 +117,8 @@ export default function HeroReel({ locale = "en" }: { locale?: Locale }) {
             <div className="flex items-start justify-between gap-6 text-xs">
               <div>
                 <p className="uppercase tracking-[0.08em] opacity-45">
-                  {projectLabel} {String(active + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+                  {projectLabel} {String(active + 1).padStart(2, "0")} /{" "}
+                  {String(slides.length).padStart(2, "0")}
                 </p>
                 <p className="mt-1 text-sm tracking-[-0.02em] md:text-base">
                   {currentSlide.title}
@@ -104,7 +138,9 @@ export default function HeroReel({ locale = "en" }: { locale?: Locale }) {
                 <span
                   key={slide.slug}
                   className={`h-px transition-opacity duration-500 ${
-                    index === active ? "bg-black opacity-100" : "bg-black opacity-15"
+                    index === active
+                      ? "bg-black opacity-100"
+                      : "bg-black opacity-15"
                   }`}
                 />
               ))}
