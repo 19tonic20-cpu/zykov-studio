@@ -130,11 +130,10 @@ export default function SiteHome({ locale }: { locale: Locale }) {
                     ? "md:col-span-5 md:-mt-52"
                     : "md:col-span-7 md:-mt-8";
 
-            const imageClass =
-              index === 0 || index === 3
-                ? "aspect-[4/3] md:aspect-[16/10]"
-                : "aspect-[4/3] md:aspect-[4/5]";
-
+        const imageClass =
+  slug === "timremont"
+    ? "aspect-[4/3] md:aspect-[4/5]"
+    : "aspect-[4/3] md:aspect-[16/10]";
             return (
               <Link
                 key={project.title}
