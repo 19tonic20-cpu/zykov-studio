@@ -429,11 +429,11 @@ aboutBody2:
     // EN
 headline: (
   <>
-    Identity, websites
+    Айдентика, сайты
     <br />
-    & digital products —
+    и цифровые продукты —
     <br />
-    built as one system.
+    как единая система.
   </>
 ),intro: "Стратегия, айдентика, веб- и продуктовый дизайн — от первого направления до запуска.",
     worldwide: "По всему миру",
