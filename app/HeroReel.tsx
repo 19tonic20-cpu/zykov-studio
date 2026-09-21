@@ -7,10 +7,10 @@ import type { Locale } from "./site-data";
 
 const slides = [
   {
-    title: "Home Pilates",
-    slug: "home-pilates",
-    image: "/work/pilates-hero.jpg",
-    year: "2025–2026",
+    title: "Crypto Hall of Fame",
+    slug: "pantheon",
+    image: "/work/pantheon-hero.jpg",
+    year: "2026",
   },
   {
     title: "TIMREMONT",
@@ -19,10 +19,10 @@ const slides = [
     year: "2026",
   },
   {
-    title: "Crypto Hall of Fame",
-    slug: "pantheon",
-    image: "/work/pantheon-hero.jpg",
-    year: "2026",
+    title: "Home Pilates",
+    slug: "home-pilates",
+    image: "/work/pilates-hero.jpg",
+    year: "2025–2026",
   },
   {
     title: "Goose",

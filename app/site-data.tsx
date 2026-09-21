@@ -26,9 +26,9 @@ export type Project = {
 };
 
 export const featuredSlugs = [
-  "home-pilates",
-  "timremont",
   "pantheon",
+  "timremont",
+  "home-pilates",
   "goose",
 ] as const;
 
