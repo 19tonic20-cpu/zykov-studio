@@ -5,16 +5,20 @@ type SummaryItem = [string, string];
 type ProjectCopy = {
   category: string;
   description: string;
+  projectType: string;
+  role: string;
+  projectStatus: string;
+  liveLabel?: string;
   summaryLabel?: string;
   summaryTitle?: string;
   summaryItems?: SummaryItem[];
-  status?: string;
 };
 
 export type Project = {
   title: string;
   year: string;
   image: string;
+  liveUrl?: string;
   caseBackground?: string;
   caseRows: string[][];
   ruCaseRows?: string[][];
@@ -26,19 +30,20 @@ export type Project = {
 };
 
 export const featuredSlugs = [
-  "pantheon",
-  "timremont",
   "home-pilates",
+  "timremont",
+  "pantheon",
   "goose",
 ] as const;
 
-export const moreSlugs = ["bitplus", "web3"] as const;
+export const moreSlugs = ["bitplus"] as const;
 
 export const projects: Record<string, Project> = {
   "home-pilates": {
     title: "Home Pilates",
     year: "2025–2026",
     image: "/work/pilates.jpg",
+    liveUrl: "https://apps.apple.com/us/app/home-pilates-pilates-at-home/id6754236907",
     caseRows: [
       ["/cases/home-pilates/01.webp"],
       ["/cases/home-pilates/02.webp"],
@@ -61,6 +66,10 @@ export const projects: Record<string, Project> = {
         category: "Product Design / Brand / iOS",
         description:
           "A home workout product developed from concept to App Store launch — covering product thinking, UX/UI, visual direction and content production.",
+        projectType: "Independent product",
+        role: "Product design & production",
+        projectStatus: "Released on iOS",
+        liveLabel: "App Store ↗",
         summaryLabel: "Project Results",
         summaryTitle: "Designed, launched\nand tested in market.",
         summaryItems: [
@@ -73,6 +82,10 @@ export const projects: Record<string, Project> = {
         category: "Продуктовый дизайн / Бренд / iOS",
         description:
           "Приложение для домашних тренировок, разработанное от идеи до запуска в App Store — от продуктовой логики и UX/UI до визуального направления и производства контента.",
+        projectType: "Независимый продукт",
+        role: "Продуктовый дизайн и продакшн",
+        projectStatus: "Выпущен в App Store",
+        liveLabel: "App Store ↗",
         summaryLabel: "Результаты проекта",
         summaryTitle: "Спроектировано, запущено\nи проверено рынком.",
         summaryItems: [
@@ -125,6 +138,9 @@ export const projects: Record<string, Project> = {
         category: "Brand Identity / Web",
         description:
           "Brand identity and digital direction for a renovation and interior design studio — from strategy and visual system to physical applications and web.",
+        projectType: "Brand identity concept",
+        role: "Strategy, identity & web design",
+        projectStatus: "Completed",
         summaryLabel: "Project Scope",
         summaryTitle: "One identity\nacross every touchpoint.",
         summaryItems: [
@@ -138,6 +154,9 @@ export const projects: Record<string, Project> = {
         category: "Айдентика / Веб",
         description:
           "Айдентика и цифровое направление для студии ремонта и дизайна интерьеров — от стратегии и визуальной системы до физических носителей и сайта.",
+        projectType: "Концепт айдентики",
+        role: "Стратегия, айдентика и веб-дизайн",
+        projectStatus: "Завершён",
         summaryLabel: "Объём работ",
         summaryTitle: "Единая айдентика\nдля всех точек контакта.",
         summaryItems: [
@@ -187,6 +206,9 @@ export const projects: Record<string, Project> = {
         category: "Digital Product / Art Direction",
         description:
           "A digital archive exploring the people, events and cultural history of crypto through a museum-inspired product experience.",
+        projectType: "Digital product",
+        role: "Product design, UX & art direction",
+        projectStatus: "In progress",
         summaryLabel: "Project Scope",
         summaryTitle: "A digital archive\nbuilt as a system.",
         summaryItems: [
@@ -196,12 +218,14 @@ export const projects: Record<string, Project> = {
           ["04", "Interface concepts"],
           ["05", "AI-assisted portrait system"],
         ],
-        status: "On hold · Not launched",
       },
       ru: {
         category: "Цифровой продукт / Арт-дирекшн",
         description:
           "Цифровой архив о людях, событиях и культурной истории криптоиндустрии, построенный как музейный продуктовый опыт.",
+        projectType: "Цифровой продукт",
+        role: "Продуктовый дизайн, UX и арт-дирекшн",
+        projectStatus: "В процессе",
         summaryLabel: "Объём работ",
         summaryTitle: "Цифровой архив,\nпостроенный как система.",
         summaryItems: [
@@ -211,7 +235,6 @@ export const projects: Record<string, Project> = {
           ["04", "Концепции интерфейсов"],
           ["05", "Система портретов с использованием ИИ"],
         ],
-        status: "Приостановлен · Не запущен",
       },
     },
   },
@@ -255,6 +278,9 @@ export const projects: Record<string, Project> = {
         category: "Brand Identity",
         description:
           "A brand identity built around a distinctive character, restrained visual language and a flexible system across physical and digital touchpoints.",
+        projectType: "Brand identity concept",
+        role: "Brand direction & visual identity",
+        projectStatus: "Completed",
         summaryLabel: "Project Scope",
         summaryTitle: "A character-led identity\nbuilt to stay consistent.",
         summaryItems: [
@@ -268,6 +294,9 @@ export const projects: Record<string, Project> = {
         category: "Айдентика",
         description:
           "Айдентика, построенная вокруг характерного персонажа, сдержанного визуального языка и гибкой системы для физических и цифровых носителей.",
+        projectType: "Концепт айдентики",
+        role: "Бренд-направление и визуальная айдентика",
+        projectStatus: "Завершён",
         summaryLabel: "Объём работ",
         summaryTitle: "Айдентика вокруг персонажа,\nсобранная в цельную систему.",
         summaryItems: [
@@ -309,12 +338,15 @@ export const projects: Record<string, Project> = {
   ["/cases/bitplus/ru/09.webp"],
   ["/cases/bitplus/ru/10.webp"],
 ],
-    nextProject: { slug: "web3", number: "06" },
+    nextProject: { slug: "home-pilates", number: "01" },
     copy: {
       en: {
         category: "UX/UI / Art Direction / Interface System",
         description:
           "UX/UI redesign, art direction and interface system for a cyber arcade crypto ecosystem across Telegram and web.",
+        projectType: "Digital product redesign",
+        role: "UX/UI design & art direction",
+        projectStatus: "Released",
         summaryLabel: "Project Scope",
         summaryTitle: "From product structure\nto a unified interface system.",
         summaryItems: [
@@ -329,6 +361,9 @@ export const projects: Record<string, Project> = {
         category: "UX/UI / Арт-дирекшн / Система интерфейсов",
         description:
           "Редизайн UX/UI, арт-дирекшн и система интерфейсов для игровой криптоэкосистемы в Telegram и вебе.",
+        projectType: "Редизайн цифрового продукта",
+        role: "UX/UI-дизайн и арт-дирекшн",
+        projectStatus: "Выпущен",
         summaryLabel: "Объём работ",
         summaryTitle: "От структуры продукта\nк единой системе интерфейсов.",
         summaryItems: [
@@ -343,7 +378,7 @@ export const projects: Record<string, Project> = {
   },
 
   web3: {
-    title: "Web3",
+    title: "BASE",
     year: "2026",
     image: "/work/web3.jpg",
     caseBackground: "#0B0F19",
@@ -357,31 +392,21 @@ export const projects: Record<string, Project> = {
     nextProject: { slug: "home-pilates", number: "01" },
     copy: {
       en: {
-        category: "Website / Digital",
-        description:
-          "Website design and visual direction for a Web3 product, built around a focused digital experience and a distinctive visual language.",
-        summaryLabel: "Project Scope",
-        summaryTitle: "A focused digital experience\nfrom concept to interface.",
-        summaryItems: [
-          ["01", "Visual direction"],
-          ["02", "Website design"],
-          ["03", "Responsive interface"],
-          ["04", "Digital system"],
-        ],
-      },
+  category: "Website / UI Concept",
+  description:
+    "Concept design for a crypto analytics platform — combining a marketing website and product dashboard into one coherent visual system.",
+  projectType: "Web design concept",
+  role: "Web design & UI concept",
+  projectStatus: "Concept",
+},
       ru: {
-        category: "Веб-сайт / Цифровой дизайн",
-        description:
-          "Дизайн сайта и визуальное направление для Web3-продукта — с фокусом на цельный цифровой опыт и выразительный визуальный язык.",
-        summaryLabel: "Объём работ",
-        summaryTitle: "Цельный цифровой опыт\nот концепции до интерфейса.",
-        summaryItems: [
-          ["01", "Визуальное направление"],
-          ["02", "Дизайн сайта"],
-          ["03", "Адаптивный интерфейс"],
-          ["04", "Цифровая система"],
-        ],
-      },
+  category: "Веб-сайт / UI-концепт",
+  description:
+    "Концепт дизайна платформы для криптоаналитики, объединяющий маркетинговый сайт и продуктовый интерфейс в единую визуальную систему.",
+  projectType: "Концепт веб-дизайна",
+  role: "Веб-дизайн и UI-концепт",
+  projectStatus: "Концепт",
+},
     },
   },
 };

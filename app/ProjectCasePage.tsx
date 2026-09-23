@@ -30,10 +30,8 @@ export default function ProjectCasePage({
     locale === "ru"
       ? {
           back: "← Назад к работам",
-          year: "Год",
           next: "Следующий проект",
           view: "Смотреть проект →",
-          status: "Статус",
           haveProject: "Есть проект?",
           worldwide: "По всему миру",
           talk: "Обсудить →",
@@ -41,10 +39,8 @@ export default function ProjectCasePage({
         }
       : {
           back: "← Back to work",
-          year: "Year",
           next: "Next Project",
           view: "View project →",
-          status: "Status",
           haveProject: "Have a project?",
           worldwide: "Worldwide",
           talk: "Let's talk →",
@@ -91,15 +87,34 @@ export default function ProjectCasePage({
           </div>
 
           <div className="flex flex-col justify-end md:col-span-4">
-            <p className="mb-8 max-w-md text-base leading-relaxed">
+            <p className="max-w-md text-base leading-relaxed">
               {copy.description}
             </p>
-
-            <div className="flex justify-between border-t border-black/20 pt-3 text-sm">
-              <span>{labels.year}</span>
-              <span>{project.year}</span>
-            </div>
           </div>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-black/20 pt-4 text-xs leading-relaxed md:mt-12 md:text-sm">
+          <span>{copy.projectType}</span>
+          <span className="opacity-30">·</span>
+          <span>{copy.role}</span>
+          <span className="opacity-30">·</span>
+          <span>{copy.projectStatus}</span>
+          <span className="opacity-30">·</span>
+          <span>{project.year}</span>
+
+          {project.liveUrl && copy.liveLabel && (
+            <>
+              <span className="opacity-30">·</span>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 transition-opacity hover:opacity-50"
+              >
+                {copy.liveLabel}
+              </a>
+            </>
+          )}
         </div>
       </section>
 
@@ -145,7 +160,6 @@ export default function ProjectCasePage({
         <ProjectSummary
           project={project}
           locale={locale}
-          statusLabel={labels.status}
         />
       )}
 
@@ -171,11 +185,9 @@ export default function ProjectCasePage({
 function ProjectSummary({
   project,
   locale,
-  statusLabel,
 }: {
   project: Project;
   locale: Locale;
-  statusLabel: string;
 }) {
   const copy = project.copy[locale];
 
@@ -209,16 +221,6 @@ function ProjectSummary({
               </div>
             ))}
           </div>
-
-          {copy.status && (
-            <div className="mt-12 flex items-center justify-between border-t border-black/20 pt-4 text-sm">
-              <span className="opacity-50">
-                {statusLabel}
-              </span>
-
-              <span>{copy.status}</span>
-            </div>
-          )}
         </div>
       </div>
     </section>
