@@ -7,10 +7,10 @@ import type { Locale } from "./site-data";
 
 const slides = [
   {
-    title: "Crypto Hall of Fame",
-    slug: "pantheon",
-    image: "/work/pantheon-hero.jpg",
-    year: "2026",
+    title: "Home Pilates",
+    slug: "home-pilates",
+    image: "/work/pilates-hero.jpg",
+    year: "2025–2026",
   },
   {
     title: "TIMREMONT",
@@ -19,10 +19,10 @@ const slides = [
     year: "2026",
   },
   {
-    title: "Home Pilates",
-    slug: "home-pilates",
-    image: "/work/pilates-hero.jpg",
-    year: "2025–2026",
+    title: "Crypto Hall of Fame",
+    slug: "pantheon",
+    image: "/work/pantheon-hero.jpg",
+    year: "2026",
   },
   {
     title: "Goose",
@@ -108,7 +108,7 @@ export default function HeroReel({ locale = "en" }: { locale?: Locale }) {
               }`}
             />
 
-            <div className="absolute left-3 top-3 bg-[#f3f1eb]/90 px-2 py-1 text-[10px] uppercase tracking-[0.08em] backdrop-blur-sm">
+            <div className="absolute left-3 top-3 bg-[#f3f1eb]/90 px-2 py-1 text-[10px] uppercase tracking-[0.08em]backdrop-blur-sm">
               {projectLabel} {String(active + 1).padStart(2, "0")}
             </div>
           </div>

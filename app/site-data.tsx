@@ -9,6 +9,7 @@ type ProjectCopy = {
   role: string;
   projectStatus: string;
   liveLabel?: string;
+  caseStory?: Array<[string, string]>;
   summaryLabel?: string;
   summaryTitle?: string;
   summaryItems?: SummaryItem[];
@@ -70,6 +71,24 @@ export const projects: Record<string, Project> = {
         role: "Product design & production",
         projectStatus: "Released on iOS",
         liveLabel: "App Store ↗",
+        caseStory: [
+          [
+            "The challenge",
+            "Create a home Pilates app that makes it easy to choose a workout, follow a programme and come back the next day.",
+          ],
+          [
+            "My role",
+            "I developed the product concept, researched competing apps, designed the user journey and interface, and produced the workout content and launch materials. The app was built with a developer.",
+          ],
+          [
+            "The design decision",
+            "The experience centres on a clear daily workout and visible progress through the programme. The interface, workout content and promotional materials were designed as parts of the same product.",
+          ],
+          [
+            "What happened",
+            "Home Pilates was released on the App Store. At the time this case study was prepared, the app had generated $323 in total revenue and had 7 active subscriptions. Paid acquisition spend was approximately $400.",
+          ],
+        ],
         summaryLabel: "Project Results",
         summaryTitle: "Designed, launched\nand tested in market.",
         summaryItems: [
@@ -86,6 +105,24 @@ export const projects: Record<string, Project> = {
         role: "Продуктовый дизайн и продакшн",
         projectStatus: "Выпущен в App Store",
         liveLabel: "App Store ↗",
+        caseStory: [
+          [
+            "Задача",
+            "Создать приложение для домашних занятий пилатесом, в котором легко выбрать тренировку, пройти программу и вернуться к занятиям на следующий день.",
+          ],
+          [
+            "Моя роль",
+            "Я разработал концепцию продукта, изучил конкурентов, спроектировал пользовательский сценарий и интерфейс, подготовил тренировочный контент и материалы для запуска. Приложение создавалось совместно с разработчиком.",
+          ],
+          [
+            "Ключевое решение",
+            "В центре сценария — понятная тренировка на сегодня и видимый прогресс в программе. Интерфейс, тренировочный контент и рекламные материалы были задуманы как части одного продукта.",
+          ],
+          [
+            "Результат",
+            "Home Pilates выпущен в App Store. На дату подготовки кейса приложение принесло $323 совокупной выручки и имело 7 активных подписок. Расходы на платное привлечение составили около $400.",
+          ],
+        ],
         summaryLabel: "Результаты проекта",
         summaryTitle: "Спроектировано, запущено\nи проверено рынком.",
         summaryItems: [
@@ -140,7 +177,7 @@ export const projects: Record<string, Project> = {
           "Brand identity and digital direction for a renovation and interior design studio — from strategy and visual system to physical applications and web.",
         projectType: "Brand identity concept",
         role: "Strategy, identity & web design",
-        projectStatus: "Completed",
+        projectStatus: "Completed design concept",
         summaryLabel: "Project Scope",
         summaryTitle: "One identity\nacross every touchpoint.",
         summaryItems: [
@@ -156,7 +193,7 @@ export const projects: Record<string, Project> = {
           "Айдентика и цифровое направление для студии ремонта и дизайна интерьеров — от стратегии и визуальной системы до физических носителей и сайта.",
         projectType: "Концепт айдентики",
         role: "Стратегия, айдентика и веб-дизайн",
-        projectStatus: "Завершён",
+        projectStatus: "Завершённый дизайн-концепт",
         summaryLabel: "Объём работ",
         summaryTitle: "Единая айдентика\nдля всех точек контакта.",
         summaryItems: [
@@ -205,10 +242,10 @@ export const projects: Record<string, Project> = {
       en: {
         category: "Digital Product / Art Direction",
         description:
-          "A digital archive exploring the people, events and cultural history of crypto through a museum-inspired product experience.",
+          "A design concept for a digital archive of crypto culture, exploring its people and events through a museum-inspired product experience. The project is currently on hold and has not launched.",
         projectType: "Digital product",
         role: "Product design, UX & art direction",
-        projectStatus: "In progress",
+        projectStatus: "On hold · Not launched",
         summaryLabel: "Project Scope",
         summaryTitle: "A digital archive\nbuilt as a system.",
         summaryItems: [
@@ -222,10 +259,10 @@ export const projects: Record<string, Project> = {
       ru: {
         category: "Цифровой продукт / Арт-дирекшн",
         description:
-          "Цифровой архив о людях, событиях и культурной истории криптоиндустрии, построенный как музейный продуктовый опыт.",
+          "Концепция цифрового архива о людях и событиях криптокультуры с подачей, вдохновлённой музеем. Сейчас проект на паузе и не запущен.",
         projectType: "Цифровой продукт",
         role: "Продуктовый дизайн, UX и арт-дирекшн",
-        projectStatus: "В процессе",
+        projectStatus: "На паузе · Не запущен",
         summaryLabel: "Объём работ",
         summaryTitle: "Цифровой архив,\nпостроенный как система.",
         summaryItems: [
@@ -280,7 +317,7 @@ export const projects: Record<string, Project> = {
           "A brand identity built around a distinctive character, restrained visual language and a flexible system across physical and digital touchpoints.",
         projectType: "Brand identity concept",
         role: "Brand direction & visual identity",
-        projectStatus: "Completed",
+        projectStatus: "Completed identity concept",
         summaryLabel: "Project Scope",
         summaryTitle: "A character-led identity\nbuilt to stay consistent.",
         summaryItems: [
@@ -296,7 +333,7 @@ export const projects: Record<string, Project> = {
           "Айдентика, построенная вокруг характерного персонажа, сдержанного визуального языка и гибкой системы для физических и цифровых носителей.",
         projectType: "Концепт айдентики",
         role: "Бренд-направление и визуальная айдентика",
-        projectStatus: "Завершён",
+        projectStatus: "Завершённый концепт айдентики",
         summaryLabel: "Объём работ",
         summaryTitle: "Айдентика вокруг персонажа,\nсобранная в цельную систему.",
         summaryItems: [
@@ -338,7 +375,7 @@ export const projects: Record<string, Project> = {
   ["/cases/bitplus/ru/09.webp"],
   ["/cases/bitplus/ru/10.webp"],
 ],
-    nextProject: { slug: "home-pilates", number: "01" },
+    nextProject: { slug: "web3", number: "06" },
     copy: {
       en: {
         category: "UX/UI / Art Direction / Interface System",
@@ -347,6 +384,24 @@ export const projects: Record<string, Project> = {
         projectType: "Digital product redesign",
         role: "UX/UI design & art direction",
         projectStatus: "Released",
+        caseStory: [
+          [
+            "The challenge",
+            "Redesign a crypto product spanning Telegram and web while giving its different features a consistent interface.",
+          ],
+          [
+            "My role",
+            "I worked on the product structure, UX/UI redesign, visual direction and interface system, including the integration of 3D assets.",
+          ],
+          [
+            "The design decision",
+            "I organised the experience around a central hub and a shared set of interface rules. Gameplay, profile, referrals, tasks, storage and finance could then feel like parts of one product.",
+          ],
+          [
+            "What was delivered",
+            "A connected set of screens and interface patterns covering the main product areas and wallet flow. This case shows the design work delivered; it does not claim a measured change in product performance.",
+          ],
+        ],
         summaryLabel: "Project Scope",
         summaryTitle: "From product structure\nto a unified interface system.",
         summaryItems: [
@@ -364,6 +419,24 @@ export const projects: Record<string, Project> = {
         projectType: "Редизайн цифрового продукта",
         role: "UX/UI-дизайн и арт-дирекшн",
         projectStatus: "Выпущен",
+        caseStory: [
+          [
+            "Задача",
+            "Переработать интерфейс криптопродукта для Telegram и веба и объединить его разные функции в понятную систему.",
+          ],
+          [
+            "Моя роль",
+            "Я работал над структурой продукта, UX/UI, визуальным направлением и системой интерфейсов, включая интеграцию 3D-элементов.",
+          ],
+          [
+            "Ключевое решение",
+            "Я выстроил сценарии вокруг центрального хаба и общих правил интерфейса. Игровые механики, профиль, приглашения, задания, хранилище и финансы стали восприниматься как части одного продукта.",
+          ],
+          [
+            "Что было подготовлено",
+            "Связанная система экранов и интерфейсных решений для основных разделов продукта и сценария кошелька. Кейс показывает выполненную дизайн-работу; подтверждённые показатели влияния на продукт здесь не заявлены.",
+          ],
+        ],
         summaryLabel: "Объём работ",
         summaryTitle: "От структуры продукта\nк единой системе интерфейсов.",
         summaryItems: [
@@ -392,96 +465,144 @@ export const projects: Record<string, Project> = {
     nextProject: { slug: "home-pilates", number: "01" },
     copy: {
       en: {
-  category: "Website / UI Concept",
-  description:
-    "Concept design for a crypto analytics platform — combining a marketing website and product dashboard into one coherent visual system.",
-  projectType: "Web design concept",
-  role: "Web design & UI concept",
-  projectStatus: "Concept",
-},
+        category: "Website / UI Concept",
+        description:
+          "Concept design for a crypto analytics platform — combining a marketing website and product dashboard into one coherent visual system.",
+        projectType: "Website concept",
+        role: "Web design & UI concept",
+        projectStatus: "Concept",
+        summaryLabel: "Project Scope",
+        summaryTitle: "A focused digital experience\nfrom concept to interface.",
+        summaryItems: [
+          ["01", "Visual direction"],
+          ["02", "Website design"],
+          ["03", "Responsive interface"],
+          ["04", "Digital system"],
+        ],
+      },
       ru: {
-  category: "Веб-сайт / UI-концепт",
-  description:
-    "Концепт дизайна платформы для криптоаналитики, объединяющий маркетинговый сайт и продуктовый интерфейс в единую визуальную систему.",
-  projectType: "Концепт веб-дизайна",
-  role: "Веб-дизайн и UI-концепт",
-  projectStatus: "Концепт",
-},
+        category: "Веб-сайт / UI-концепт",
+        description:
+          "Концепт дизайна платформы для криптоаналитики, объединяющий маркетинговый сайт и продуктовый интерфейс в единую визуальную систему.",
+        projectType: "Концепт веб-дизайна",
+        role: "Веб-дизайн и UI-концепт",
+        projectStatus: "Концепт",
+        summaryLabel: "Объём работ",
+        summaryTitle: "Цельный цифровой опыт\nот концепции до интерфейса.",
+        summaryItems: [
+          ["01", "Визуальное направление"],
+          ["02", "Дизайн сайта"],
+          ["03", "Адаптивный интерфейс"],
+          ["04", "Цифровая система"],
+        ],
+      },
     },
   },
 };
 
 export const homeCopy = {
   en: {
-    nav: { work: "Work", services: "Services", about: "About", contact: "Contact" },
-    kicker: "Independent Brand & Digital Studio",
-    // EN
-headline: (
-  <>
-    Identity, websites
-    <br />
-    & digital products —
-    <br />
-    built as one system.
-  </>
-),intro: "Strategy, identity, web and product design — from first direction to launch.",
+    nav: {
+      work: "Work",
+      services: "Services",
+      about: "About",
+      contact: "Contact",
+    },
+    kicker: "Independent design studio",
+    headline: (
+      <>
+        Identity, websites
+        <br />
+        & digital products.
+      </>
+    ),
+    intro:
+      "Independent design studio creating visual identities, websites and digital experiences for businesses.",
     worldwide: "Worldwide",
     startProject: "Start a project →",
     selectedWork: "Selected Work",
+    selectedWorkIntro:
+      "Identity, websites and digital products across different industries.",
     moreWork: "More Work",
     archive: "Archive",
-    services: "Services",
-    servicesHeadline: <>From first direction<br />to launch.</>,
+    services: "What we do",
     serviceRows: [
-      ["01", "Brand + Website", "Positioning, visual identity and a custom website built as one coherent system.", "Core service"],
-      ["02", "Launch Support", "Key launch materials, presentations, campaign creatives and digital touchpoints.", "Extended"],
-      ["03", "Digital Products", "UX/UI, visual systems and digital experiences for apps, SaaS and emerging products.", "By scope"],
+      ["01", "Brand Identity"],
+      ["02", "Web Design"],
+      ["03", "Digital Products"],
+      ["04", "Art Direction"],
     ],
-   about: "About",
-aboutHeadline: <>Independent studio for brands,<br />websites & digital products.</>,
-aboutBody1:
-  "We work across brand identity, websites and digital products, connecting strategy, visual direction and execution into one coherent system.",
-aboutBody2:
-  "Each project is shaped around the task — from focused identity work to complete brand and digital experiences.", contactLabel: "Start a project",
-    contactHeadline: <>Let&apos;s make<br />something that matters.</>,
+    about: "About",
+    aboutHeadline: "Independent by design.",
+    aboutBody1:
+      "ZYKOV is an independent brand and digital studio founded by Alexey Zykov. I lead the creative direction and design work across identity, websites and digital products, bringing in collaborators when a project needs additional expertise.",
+    aboutProcessHeadline: "From direction to launch.",
+    aboutBody2:
+      "We start by defining the task and what the design needs to achieve. Then I develop the visual direction, build the system and apply it across the required screens and materials. The result is prepared for a real launch or a clear handoff to the team building it.",
+    contactLabel: "Start a project",
+    contactHeadline: (
+      <>
+        Have a project
+        <br />
+        in mind?
+      </>
+    ),
+    contactBody:
+      "Tell me what you’re building, what you need help with and your approximate timing.",
+    contactResponse:
+      "I’ll review the brief and reply within 1–2 business days with the next step.",
     email: "Email",
-    social: "Social",
-    studio: "Brand & Digital Studio",
+    studio: "Independent Brand & Digital Studio",
   },
   ru: {
-    nav: { work: "Работы", services: "Услуги", about: "О студии", contact: "Контакты" },
-    kicker: "Независимая студия брендинга и цифрового дизайна",
-    // EN
-headline: (
-  <>
-    Айдентика, сайты
-    <br />
-    и цифровые продукты —
-    <br />
-    как единая система.
-  </>
-),intro: "Стратегия, айдентика, веб- и продуктовый дизайн — от первого направления до запуска.",
+    nav: {
+      work: "Работы",
+      services: "Услуги",
+      about: "О студии",
+      contact: "Контакты",
+    },
+    kicker: "Независимая дизайн-студия",
+    headline: (
+      <>
+        Айдентика, сайты
+        <br />
+        и цифровые продукты.
+      </>
+    ),
+    intro:
+      "Независимая дизайн-студия, которая создаёт визуальные системы, сайты и цифровые продукты для бизнеса.",
     worldwide: "По всему миру",
     startProject: "Обсудить проект →",
     selectedWork: "Избранные проекты",
+    selectedWorkIntro:
+      "Айдентика, сайты и цифровые продукты для разных индустрий.",
     moreWork: "Другие проекты",
     archive: "Архив",
-    services: "Услуги",
-    servicesHeadline: <>От первого направления<br />до запуска.</>,
+    services: "Что мы делаем",
     serviceRows: [
-      ["01", "Бренд + сайт", "Позиционирование, визуальная айдентика и кастомный сайт, собранные в единую систему.", "Основная услуга"],
-      ["02", "Поддержка запуска", "Ключевые материалы для запуска, презентации, рекламные креативы и цифровые точки контакта.", "Расширенный формат"],
-      ["03", "Цифровые продукты", "UX/UI, визуальные системы и цифровые интерфейсы для приложений, SaaS и новых продуктов.", "По задаче"],
+      ["01", "Айдентика"],
+      ["02", "Веб-дизайн"],
+      ["03", "Цифровые продукты"],
+      ["04", "Арт-дирекшн"],
     ],
-   about: "О студии",
-aboutHeadline: <>Независимая студия брендинга,<br />веба и цифровых продуктов.</>,
-aboutBody1:
-  "Мы работаем с айдентикой, сайтами и цифровыми продуктами, объединяя стратегию, визуальное направление и реализацию в единую систему.",
-aboutBody2:
-  "Каждый проект строится вокруг задачи — от разработки айдентики до комплексных брендовых и цифровых решений.",contactLabel: "Обсудить проект",
-    contactHeadline: <>Создадим то,<br />что действительно важно.</>,
+    about: "О студии",
+    aboutHeadline: "Независимая студия. Осознанный подход.",
+    aboutBody1:
+      "ZYKOV — независимая студия брендинга и цифрового дизайна, основанная Алексеем Зыковым. Я отвечаю за визуальное направление и дизайн айдентики, сайтов и цифровых продуктов, подключая специалистов, когда проекту нужны дополнительные компетенции.",
+    aboutProcessHeadline: "От направления до запуска.",
+    aboutBody2:
+      "Сначала мы определяем задачу и то, чего должен достичь дизайн. Затем я разрабатываю визуальное направление, собираю систему и применяю её к нужным экранам и материалам. В результате проект готов к запуску или передаче команде, которая будет его реализовывать.",
+    contactLabel: "Обсудить проект",
+    contactHeadline: (
+      <>
+        Есть проект?
+      </>
+    ),
+    contactBody:
+      "Расскажите, что вы создаёте, с чем нужна помощь и какие у проекта примерные сроки.",
+    contactResponse:
+      "Я изучу задачу и отвечу в течение 1–2 рабочих дней с предложением следующего шага.",
     email: "Email",
-    social: "Соцсети",
-    studio: "Студия брендинга и цифрового дизайна",
+    studio: "Независимая студия брендинга и цифрового дизайна",
   },
 };

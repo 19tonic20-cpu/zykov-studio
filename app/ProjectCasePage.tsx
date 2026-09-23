@@ -118,43 +118,20 @@ export default function ProjectCasePage({
         </div>
       </section>
 
-      <section
-        style={{
-          backgroundColor: project.caseBackground ?? "#f3f1eb",
-        }}
-        className="px-6 pb-20 md:px-10 md:pb-28"
-      >
-        <div className="flex flex-col gap-0">
-          {caseRows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className={
-                row.length > 1
-                  ? "grid gap-0 md:grid-cols-2"
-                  : "block"
-              }
-            >
-              {row.map((image, imageIndex) => {
-                const isFirstImage =
-                  rowIndex === 0 && imageIndex === 0;
+      <CaseImages
+        rows={caseRows.slice(0, 1)}
+        project={project}
+        isFirstSection
+      />
 
-                return (
-                  <img
-                    key={image}
-                    src={image}
-                    alt={`${project.title} case study ${
-                      rowIndex + imageIndex + 1
-                    }`}
-                    loading={isFirstImage ? "eager" : "lazy"}
-                    decoding="async"
-                    className="block h-auto w-full"
-                  />
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      </section>
+      {copy.caseStory && (
+        <CaseStory items={copy.caseStory} />
+      )}
+
+      <CaseImages
+        rows={caseRows.slice(1)}
+        project={project}
+      />
 
       {copy.summaryItems && (
         <ProjectSummary
@@ -179,6 +156,88 @@ export default function ProjectCasePage({
         talk={labels.talk}
       />
     </main>
+  );
+}
+
+function CaseImages({
+  rows,
+  project,
+  isFirstSection = false,
+}: {
+  rows: string[][];
+  project: Project;
+  isFirstSection?: boolean;
+}) {
+  if (rows.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      style={{
+        backgroundColor: project.caseBackground ?? "#f3f1eb",
+      }}
+      className={`px-6 md:px-10 ${
+        isFirstSection ? "" : "pb-20 md:pb-28"
+      }`}
+    >
+      <div className="flex flex-col gap-0">
+        {rows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className={
+              row.length > 1
+                ? "grid gap-0 md:grid-cols-2"
+                : "block"
+            }
+          >
+            {row.map((image, imageIndex) => {
+              const isFirstImage =
+                isFirstSection &&
+                rowIndex === 0 &&
+                imageIndex === 0;
+
+              return (
+                <img
+                  key={image}
+                  src={image}
+                  alt={`${project.title} case study ${
+                    rowIndex + imageIndex + 1
+                  }`}
+                  loading={isFirstImage ? "eager" : "lazy"}
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CaseStory({
+  items,
+}: {
+  items: Array<[string, string]>;
+}) {
+  return (
+    <section className="bg-[#f3f1eb] px-6 py-16 text-[#111111] md:px-10 md:py-24">
+      <div className="grid gap-10 border-t border-black/20 pt-6 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
+        {items.map(([label, text]) => (
+          <div key={label}>
+            <p className="mb-4 text-xs uppercase tracking-[0.08em] opacity-50">
+              {label}
+            </p>
+
+            <p className="max-w-2xl text-xl leading-[1.35] tracking-[-0.02em] md:text-2xl">
+              {text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
