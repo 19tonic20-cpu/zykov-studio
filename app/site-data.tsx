@@ -36,7 +36,7 @@ export const featuredSlugs = [
   "goose",
 ] as const;
 
-export const moreSlugs = ["bitplus"] as const;
+export const moreSlugs = ["bitplus", "web3"] as const;
 
 export const projects: Record<string, Project> = {
   "home-pilates": {
